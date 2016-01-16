@@ -1,0 +1,25 @@
+# This file contains definitions common to all makefiles in
+# subdirectories. Changing this one file therefore modifies all
+# makefiles below this one as they include these definitions.
+
+#
+# Written by David Chelberg (dmc)
+# last-modified: Mon Sep 17 11:34:09 2012
+
+
+# Use Solaris's compiler, not g++
+CC = g++
+
+# Compiler options
+#CC_OPTIONS = -pedantic
+CC_OPTIONS =
+INCS = -I ./angel06/include
+
+# combine options for basic compilation
+OPTIONS = $(CC_OPTIONS)  $(INCS)
+
+# must use the following when building a executable
+LDLIBS = -lGLEW -lGL -lglut -lm -lGLU
+
+# program to link in compiling all binaries that initialize shaders
+InitShader = ./angel06/Common/InitShader.o
